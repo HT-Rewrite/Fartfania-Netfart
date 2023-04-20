@@ -9,7 +9,9 @@
 delay_text_open := 100      ; The delay to wait for the chat to open
 delay_warp_open := 1000     ; The delay to wait for the warp menu to open
 delay_warp_close := 0      ; The delay to wait till it teleports to warp
-delay_warp_goto := 150       ; The delay to wait after it closes warp menu
+;SPAWN=delay_warp_goto := 130       ; The delay to wait after it closes warp menu
+;WARP=delay_warp_goto := 90       ; The delay to wait after it closes warp menu
+delay_warp_goto := 90       ; The delay to wait after it closes warp menu
 
 ;
 ; DO NOT TOUCH BELOW THIS LINE
