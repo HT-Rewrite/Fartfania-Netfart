@@ -21,15 +21,17 @@ mouse_x2 := 0
 mouse_y1 := 0
 mouse_y2 := 0
 
-hIcon := LoadPicture("fart.ico", "Icon1 w32 h32", &imgtype)
+hIcon := LoadPicture("resources/fart.ico", "Icon1 w32 h32", &imgtype)
 main_gui := Gui(,"Volcania Net. Duper v1.2")
 
 SendMessage(0x0080, 0, hIcon, main_gui)
 SendMessage(0x0080, 1, hIcon, main_gui)
 
-text_welcome := main_gui.Add("Text","w300 h30","Fartfania Duper v1.2 by PK2_Stimpy")
+text_welcome := main_gui.Add("Text","w300 h25","Fartfania Duper v1.2 by PK2_Stimpy")
 text_welcome.SetFont("s14",)
-main_gui.Add("Text",,"")
+
+main_gui.AddPicture("h128 w128", "resources/logo4.png")
+
 text_config := main_gui.Add("Text","w200 h20","DELAY CONFIGURATION")
 text_config.SetFont("s10",)
 
@@ -93,6 +95,11 @@ return ;
 
 ^!z::
 {
+    if(mouse_x1 == 0 || mouse_y1 == 0) {
+        MsgBox "The goto mouse position is not set!", "ERROR"
+        return
+    }
+
     Send "T"
     Sleep delay_text_open
     Send "/warp{Enter}"
@@ -106,6 +113,11 @@ return ;
 
 ^!x::
 {
+    if(mouse_x2 == 0 || mouse_y2 == 0) {
+        MsgBox "The back mouse position is not set!", "ERROR"
+        return
+    }
+
     Send "T"
     Sleep delay_text_open
     Send "/warp{Enter}"
